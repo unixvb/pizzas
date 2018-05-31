@@ -1,0 +1,23 @@
+.pizza {
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  &__title {
+    width: 100%;
+  }
+
+  &__slice {
+    width: 30%;
+    padding-top: 30%;
+    margin: 0 auto;
+    background: url('../assets/images/pizza-slice.svg') no-repeat;
+    background-size: contain;
+  }
+
+  &__description {
+    width: 100%;
+  }
+}
