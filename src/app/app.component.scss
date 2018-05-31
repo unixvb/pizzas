@@ -1,3 +1,5 @@
+@import "../assets/styles/variables";
+
 .pizza {
   &__wrapper {
     display: flex;
@@ -7,11 +9,13 @@
 
   &__title {
     width: 100%;
+    font-family: $font-gist-light;
+    font-size: 50px;
   }
 
   &__slice {
     width: 30%;
-    padding-top: 30%;
+    padding: 30% 40px 0 0;
     margin: 0 auto;
     background: url('../assets/images/pizza-slice.svg') no-repeat;
     background-size: contain;
@@ -19,5 +23,13 @@
 
   &__description {
     width: 100%;
+    font-family: $font-rise-n-shine;
+    font-size: 13px;
+    transition: color $transition-duration;
+
+    &:hover {
+      cursor: pointer;
+      color: $color-red;
+    }
   }
 }
