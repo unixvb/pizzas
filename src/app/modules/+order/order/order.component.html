@@ -1,9 +1,34 @@
 <div class="available-pieces__wrapper">
-  <p class="available-pieces__title">Available pizza slices</p>
-  <div class="available-pieces__box">
-    <p *ngFor="let piece of availablePieces | numberToArray;"
-       class="available-pieces__item">
-      🍕
-    </p>
+  <ng-container *ngIf="!!availablePieces; else surprised">
+    <p class="available-pieces__title">Available pizza slices</p>
+    <div class="available-pieces__box">
+      <p *ngFor="let piece of availablePieces | numberToArray;"
+         class="available-pieces__item">
+        🍕
+      </p>
+    </div>
+  </ng-container>
+  <ng-template #surprised>
+    <p class="available-pieces__title">NO pizza slices available</p>
+    <div class="available-pieces__box">
+      <div class="available-pieces__action-wrapper"
+           (click)="cookSlice()">
+        <div class="available-pieces__action-image"></div>
+        <div class="available-pieces__action-description">cook</div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+<div class="available-pieces__wrapper"
+     [hidden]="!availablePieces">
+  <div class="available-pieces__action-wrapper"
+       (click)="cookSlice()">
+    <div class="available-pieces__action-image"></div>
+    <div class="available-pieces__action-description">cook</div>
+  </div>
+  <div class="available-pieces__action-wrapper"
+       (click)="eatSlice()">
+    <div class="available-pieces__action-image"></div>
+    <div class="available-pieces__action-description">eat</div>
   </div>
 </div>

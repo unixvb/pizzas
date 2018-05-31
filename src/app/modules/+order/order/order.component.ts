@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {config} from '../../../../config';
 
 @Component({
@@ -6,13 +6,22 @@ import {config} from '../../../../config';
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent {
   availablePieces = 6;
-  maxAvailablePieces = config.max_available_pieces;
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnInit() {
+  public cookSlice() {
+    if (this.availablePieces < config.max_available_pieces) {
+      this.availablePieces++;
+    }
+  }
+
+  public eatSlice() {
+    if (this.availablePieces > 0) {
+      this.availablePieces--;
+    }
   }
 
 }
