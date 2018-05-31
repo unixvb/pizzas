@@ -1,43 +1,32 @@
 @import "../../assets/styles/variables";
 
-.pizza {
-  &__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-  }
+:host {
+  width: 100%;
 
-  &__title {
-    margin: 100px auto 30px;
-    font-family: $font-gist-light;
-    font-size: 50px;
-    cursor: default;
-  }
+  .pizza {
+    &__slice {
+      width: 30%;
+      padding: 30% 40px 0 0;
+      margin: 0 auto;
+      background: url('../../assets/images/pizza-slice.svg') no-repeat;
+      background-size: contain;
+    }
 
-  &__slice {
-    width: 30%;
-    padding: 30% 40px 0 0;
-    margin: 0 auto;
-    background: url('../../assets/images/pizza-slice.svg') no-repeat;
-    background-size: contain;
-  }
+    &__description {
+      margin: 13px auto;
+      font-family: $font-rise-n-shine;
+      font-size: 13px;
+      transition: color $transition-duration;
 
-  &__description {
-    margin: 13px auto;
-    font-family: $font-rise-n-shine;
-    font-size: 13px;
-    transition: color $transition-duration;
-    color: $color-black;
-    text-decoration: none;
-
-    &:hover {
-      cursor: pointer;
-      color: $color-red;
+      &:hover {
+        cursor: pointer;
+        color: $color-red;
+      }
     }
   }
-}
 
-.flex-row__wrapper {
-  width: 100%;
-  display: flex;
+  .flex-row__wrapper {
+    width: 100%;
+    display: flex;
+  }
 }

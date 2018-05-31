@@ -1,0 +1,19 @@
+@import "../../../assets/styles/variables";
+
+:host {
+  width: 100%;
+  display: flex;
+
+  .pizza {
+    &__title {
+      margin: 100px auto 30px;
+      font-family: $font-gist-light;
+      font-size: 50px;
+      cursor: default;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
