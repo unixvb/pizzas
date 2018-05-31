@@ -1,6 +1,9 @@
-<p>
-  order ################# works!
-</p>
-<div>
-  <p *ngFor="let piece of availablePieces | numberToArray">🍕</p>
+<div class="available-pieces__wrapper">
+  <p class="available-pieces__title">Available pizza slices</p>
+  <div class="available-pieces__box">
+    <p *ngFor="let piece of availablePieces | numberToArray;"
+       class="available-pieces__item">
+      🍕
+    </p>
+  </div>
 </div>
