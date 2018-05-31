@@ -3,12 +3,13 @@ import {OrderComponent} from './order/order.component';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {OrderRoutingModule} from './order-routing.module';
+import {SharedModule} from '../../shared/shared.module';
 
 
 @NgModule({
   imports: [
     RouterModule,
-    CommonModule,
+    SharedModule,
     OrderRoutingModule
   ],
   declarations: [OrderComponent],
