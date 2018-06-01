@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "8088": "ng serve --aot --host pizzas.local --port 8088",
+    "8088": "ng serve --aot --host pizzas.local --port 8088 --c=development",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -23,6 +23,8 @@
     "@angular/platform-browser": "6.0.3",
     "@angular/platform-browser-dynamic": "6.0.3",
     "@angular/router": "6.0.3",
+    "@ngrx/core": "^1.2.0",
+    "@ngrx/store": "^6.0.1",
     "core-js": "^2.4.1",
     "rxjs": "^6.2.0",
     "zone.js": "^0.8.26"
@@ -44,6 +46,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ngrx-store-freeze": "^0.2.2",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",

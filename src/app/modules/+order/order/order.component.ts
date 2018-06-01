@@ -1,5 +1,9 @@
 import {Component} from '@angular/core';
-import {config} from '../../../../config';
+import {Store} from '@ngrx/store';
+import {config} from '@config';
+
+import * as orderReducer from '../reducers';
+import {SetAvailablePieces} from '../actions/order.action';
 
 @Component({
   selector: 'app-order',
@@ -9,7 +13,8 @@ import {config} from '../../../../config';
 export class OrderComponent {
   availablePieces = 6;
 
-  constructor() {
+  constructor(private store: Store<orderReducer.State>) {
+    this.store.dispatch(new SetAvailablePieces(777));
   }
 
   public cookSlice() {

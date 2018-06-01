@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Store} from '@ngrx/store';
+
+import * as rootReducer from '../store/reducers';
+import {SetName} from '../store/actions/user.action';
 
 @Component({
   selector: 'app-main',
@@ -7,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<rootReducer.State>) {
+    // this.store.dispatch(new SetName('newfdasfad'));
+  }
 
   ngOnInit() {
   }
