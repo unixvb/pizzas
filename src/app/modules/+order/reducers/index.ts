@@ -12,5 +12,6 @@ export const reducers = {
   order: orderReducer.reducer
 };
 
-export const getOrderState = createFeatureSelector<orderReducer.State>(config.stores.order);
-export const getOrderAvailablePieces = createSelector(getOrderState, orderReducer.getAvailablePieces);
+export const getState = createFeatureSelector<State>(config.stores.order);
+export const selectOrderState = createSelector(getState, (state: State) => state.order);
+export const selectOrderAvailablePieces = createSelector(selectOrderState, orderReducer.getAvailablePieces);

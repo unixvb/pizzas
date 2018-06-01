@@ -1,32 +1,41 @@
-import {Component} from '@angular/core';
-import {Store} from '@ngrx/store';
+import {Component, OnInit} from '@angular/core';
+import {select, Store} from '@ngrx/store';
+import {takeUntil, tap} from 'rxjs/internal/operators';
 import {config} from '@config';
 
+import {CookPiece, EatPiece} from '../actions/order.action';
+import {Common} from '../../../common/common';
+
 import * as orderReducer from '../reducers';
-import {SetAvailablePieces} from '../actions/order.action';
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent {
-  availablePieces = 6;
+export class OrderComponent extends Common implements OnInit {
+  availablePieces: number;
 
   constructor(private store: Store<orderReducer.State>) {
-    this.store.dispatch(new SetAvailablePieces(777));
+    super();
+  }
+
+  ngOnInit(): void {
+    this.store
+      .pipe(
+        select(orderReducer.selectOrderAvailablePieces),
+        tap((availablePieces) => this.availablePieces = availablePieces),
+        takeUntil(this.unsubscribe$)
+      )
+      .subscribe();
   }
 
   public cookSlice() {
-    if (this.availablePieces < config.max_available_pieces) {
-      this.availablePieces++;
-    }
+    this.store.dispatch(new CookPiece());
   }
 
   public eatSlice() {
-    if (this.availablePieces > 0) {
-      this.availablePieces--;
-    }
+    this.store.dispatch(new EatPiece());
   }
 
 }

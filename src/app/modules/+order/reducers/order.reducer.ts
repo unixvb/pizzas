@@ -11,7 +11,6 @@ const initialState: State = {
 export function reducer(state: State = initialState, action: Actions): State {
   switch (action.type) {
     case OrderActionTypes.SET_AVAILABLE_PIECES:
-      console.log('setter');
       return {...state, availablePieces: action.payload};
     default:
       return state;

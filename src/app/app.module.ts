@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
 
 import {AppComponent} from './app/app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -27,7 +28,16 @@ import {metaReducers, reducers} from './store/reducers';
      * meta-reducer. This returns all providers for an @ngrx/store
      * based application.
      */
-    StoreModule.forRoot(reducers, {metaReducers})
+    StoreModule.forRoot(reducers, {metaReducers}),
+
+    /**
+     * EffectsModule.forRoot() is imported once in the root module and
+     * sets up the effects class to be initialized immediately when the
+     * application starts.
+     *
+     * See: https://github.com/ngrx/platform/blob/master/docs/effects/api.md#forroot
+     */
+    EffectsModule.forRoot([]),
 
   ],
   providers: [],
